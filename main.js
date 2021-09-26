@@ -8,7 +8,8 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 600,
     height: 600,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#001529',
+    darkTheme: true,
     icon: `file://${__dirname}/dist/assets/logo.png`,
     webPreferences: {
       nodeIntegration: true
@@ -20,6 +21,8 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null
   });
+
+  // mainWindow.setMenu(null);
 }
 
 app.on('ready', createWindow);
