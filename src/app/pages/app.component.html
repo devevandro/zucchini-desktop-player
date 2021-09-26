@@ -1,0 +1,48 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <img src="assets/img/logo.png" alt="logo">
+      <h1>Zucchini Rádio</h1>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzOpen nzTitle="Rádios FM" nzIcon="customer-service">
+        <ng-container *ngFor="let route of routes">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="{{ route?.route }}">{{ route?.label }}</a>
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Player" nzIcon="sound">
+        <ng-container *ngFor="let playerOption of playerOptions">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="{{ playerOption?.route}}">{{ playerOption?.label }}</a>
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'double-right' : 'double-left'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+     </div>
+  </nz-layout>
+</nz-layout>
