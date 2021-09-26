@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { State } from '@models/state.interface';
 
@@ -25,7 +26,7 @@ export class RadioCardComponent implements OnInit {
   ];
   public state: State = null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.regions.map(statesValues => {
@@ -38,5 +39,8 @@ export class RadioCardComponent implements OnInit {
 
   handleState(state: State): void {
     this.state = state;
+    this.router.navigate(['/radio'], {
+      state: { datas: this.state }
+    });
   }
 }
