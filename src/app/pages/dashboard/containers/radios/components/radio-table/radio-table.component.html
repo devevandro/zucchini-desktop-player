@@ -1,1 +1,39 @@
-<p (click)="handleBack()">voltar</p>
+<nz-divider nzOrientation="left" [nzText]="stateName"></nz-divider>
+
+<!-- <div class="row">
+  <div class="cursor-pointer" (click)="handleBack()" nz-tooltip nzTooltipTitle="Voltar">
+    <i class="trigger"
+       nz-icon
+       nzType="arrow-left"
+    ></i>
+  </div>
+
+  <div>
+    <span><strong>{{ stateName }}</strong></span>
+  </div>
+</div> -->
+
+<nz-table
+  #radioTable
+  [nzData]="radios"
+  [nzPageSize]="10"
+  nzTableLayout="fixed"
+  [nzHideOnSinglePage]="true"
+  nzSize="small">
+  <thead>
+    <tr>
+      <th>Rádio</th>
+      <th>Cidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr (click)="handlePlay(data)" class="cursor-pointer" *ngFor="let data of radioTable.data">
+      <td>
+        {{ data.name }}
+      </td>
+      <td>
+        {{ data.city }}
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
