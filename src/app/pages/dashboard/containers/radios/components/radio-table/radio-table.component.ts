@@ -13,7 +13,9 @@ import { Radio } from '@models/radio.interface';
 export class RadioTableComponent implements OnInit {
   public state: State;
   public radios: Radio[] = [];
+  public radio: Radio;
   public stateName = '';
+  public audioObj = new Audio();
 
   constructor(
     private router: Router,
@@ -37,7 +39,10 @@ export class RadioTableComponent implements OnInit {
   }
 
   handlePlay(radio: Radio): void {
-    console.log(radio);
+    this.radio =  radio;
+    const { url } = radio;
+    this.audioObj.src = url;
+    this.audioObj.play();
   }
 
   handleBack(): void {
