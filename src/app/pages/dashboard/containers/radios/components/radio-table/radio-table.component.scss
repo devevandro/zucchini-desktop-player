@@ -1,0 +1,44 @@
+img {
+  object-fit: cover;
+}
+
+::ng-deep {
+  .ant-table-container,
+  .ant-table-container table > thead > tr:first-child th:last-child,
+  table > thead > tr:first-child th:first-child {
+    color: #ffffff;
+    background-color: #474a51;
+  }
+
+  thead,
+  tbody {
+    background-color: #2e2f34;
+  }
+
+  tr {
+    color: #ffffff;
+  }
+
+  .ant-pagination-item a {
+    color: #ffffff;
+  }
+
+  .anticon,
+  .anticon svg {
+    color: #1890ff;
+  }
+
+  .ant-pagination-item-active {
+    background: transparent;
+    border-color: #1890ff;
+  }
+
+  .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: #474a51;
+  }
+
+  .ant-divider-horizontal.ant-divider-with-text {
+    color: #ffffff;
+    border-top-color: #ffffff;
+  }
+}
