@@ -12,6 +12,7 @@ export class RadioPlayService {
 
   play(radio: Radio): void {
     const { url } = radio;
+    this.audioObj.src = '';
     this.audioObj.src = url;
     this.audioObj.play();
   }
