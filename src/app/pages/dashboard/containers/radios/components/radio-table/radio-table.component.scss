@@ -1,8 +1,25 @@
+.playing {
+  background-color: #474a51;
+}
+
 img {
   object-fit: cover;
+  height: 5rem;
+}
+
+span {
+  color: #ffffff;
+
+  i {
+    font-size: 1.3rem;
+  }
 }
 
 ::ng-deep {
+  .ant-page-header-heading-title {
+    color: #ffffff;
+  }
+
   .ant-table-container,
   .ant-table-container table > thead > tr:first-child th:last-child,
   table > thead > tr:first-child th:first-child {
