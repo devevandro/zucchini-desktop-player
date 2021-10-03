@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Region } from '@models/region.interface';
 import { RadiosService } from '../../services/radios.service';
 
 @Component({
