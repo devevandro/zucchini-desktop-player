@@ -1,27 +1,30 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { State } from '@models/state.interface';
 
 @Component({
-  selector: 'app-radio-card',
-  templateUrl: './radio-card.component.html',
-  styleUrls: ['./radio-card.component.scss']
+  selector: 'app-radio-card-midlewest',
+  templateUrl: './radio-card-midlewest.component.html',
+  styleUrls: ['./radio-card-midlewest.component.scss']
 })
-export class RadioCardComponent implements OnInit {
+export class RadioCardMidlewestComponent implements OnInit {
   @Input() regions = [];
 
   public data = [
     {
-      name: 'Paraná',
+      name: 'Distrito Federal',
       content: null,
     },
     {
-      name: 'Porto Alegre',
+      name: 'Goiás',
       content: null,
     },
     {
-      name: 'Santa Catarina',
+      name: 'Mato Grosso',
+      content: null,
+    },
+    {
+      name: 'Mato Grosso do Sul',
       content: null,
     }
   ];
@@ -31,10 +34,11 @@ export class RadioCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.regions.map(statesValues => {
-      const { parana, portoAlegre, santaCatarina } = statesValues;
-      this.data[0].content = parana;
-      this.data[1].content = portoAlegre;
-      this.data[2].content = santaCatarina;
+      const { distritoFederal, goias, matoGrosso, matoGrossoSul } = statesValues;
+      this.data[0].content = distritoFederal;
+      this.data[1].content = goias;
+      this.data[2].content = matoGrosso;
+      this.data[3].content = matoGrossoSul;
     });
   }
 
