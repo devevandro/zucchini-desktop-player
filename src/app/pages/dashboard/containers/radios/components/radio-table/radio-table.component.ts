@@ -31,7 +31,7 @@ export class RadioTableComponent implements OnInit {
     const { datas } = history.state;
 
     if (datas === undefined) {
-      this.router.navigate(['/regiao-sul']);
+      this.router.navigate(['/radios-favoritas']);
     } else {
       if (datas) {
         this.state = datas;
