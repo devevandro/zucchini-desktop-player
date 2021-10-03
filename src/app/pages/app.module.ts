@@ -22,6 +22,7 @@ import { SouthComponent } from './dashboard/containers/radios/containers/south/s
 import { RadioCardComponent } from './dashboard/containers/radios/components/radio-card/radio-card.component';
 import { RadioPlayComponent } from './dashboard/components/radio-play/radio-play.component';
 import { SoutheastComponent } from './dashboard/containers/radios/containers/southeast/southeast.component';
+import { RadioCardSoutheastComponent } from './dashboard/containers/radios/components/radio-card-southeast/radio-card-southeast.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -33,6 +34,7 @@ registerLocaleData(pt);
     RadioCardComponent,
     RadioPlayComponent,
     SoutheastComponent,
+    RadioCardSoutheastComponent,
   ],
   imports: [
     BrowserModule,
