@@ -27,7 +27,7 @@
           class="cursor-pointer"
           *ngFor="let data of radioTable.data"
           [ngClass]="{
-            'playing': radioPlaying === data?.url
+            'playing': radio?.url === data?.url
           }">
           <td>
             {{ data?.name }}
@@ -56,16 +56,19 @@
         <div class="col d-flex flex-row justify-content-center align-items-center">
           <ng-container *ngIf="!isMute; else volumeTemplateRef">
             <span class="mx-3 icons cursor-pointer" (click)="handleMute()">
-              <i class="fas fa-volume-up"></i>
+              <i class="fas fa-volume-up" nz-tooltip nzTooltipTitle="Mutar" [nzTooltipColor]="color">
+              </i>
             </span>
           </ng-container>
           <ng-container *ngIf="!isPlaying; else pauseTemplateRef">
             <span class="mx-3 icons cursor-pointer" (click)="handlePlay()">
-              <i class="far fa-play-circle"></i>
+              <i class="far fa-play-circle" nz-tooltip nzTooltipTitle="Play" [nzTooltipColor]="color">
+              </i>
             </span>
           </ng-container>
           <span class="mx-3 icons cursor-pointer">
-            <i class="far fa-heart"></i>
+            <i class="far fa-heart"  nz-tooltip nzTooltipTitle="Adicionar aos favoritos" [nzTooltipColor]="color">
+            </i>
           </span>
         </div>
         <span class="w-25">
@@ -78,13 +81,15 @@
 
 <ng-template #pauseTemplateRef>
   <span class="mx-3 icons cursor-pointer" (click)="handlePause()">
-    <i class="far fa-pause-circle"></i>
+    <i class="far fa-pause-circle" nz-tooltip nzTooltipTitle="Pause" [nzTooltipColor]="color">
+    </i>
   </span>
 </ng-template>
 
 <ng-template #volumeTemplateRef>
   <span class="mx-3 icons cursor-pointer" (click)="handleUp()">
-    <i class="fas fa-volume-mute"></i>
+    <i class="fas fa-volume-mute" nz-tooltip nzTooltipTitle="Desmutar" [nzTooltipColor]="color">
+    </i>
   </span>
 </ng-template>
 
