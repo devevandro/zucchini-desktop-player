@@ -7,6 +7,7 @@ import { FavoriteRadiosComponent } from './dashboard/containers/radios/container
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
 import { SoutheastComponent } from './dashboard/containers/radios/containers/southeast/southeast.component';
 import { MidlewestComponent } from './dashboard/containers/radios/containers/midlewest/midlewest.component';
+import { NortheastComponent } from './dashboard/containers/radios/containers/northeast/northeast.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'regiao-centro-oeste',
     component: MidlewestComponent,
+  },
+  {
+    path: 'regiao-nordeste',
+    component: NortheastComponent,
   },
   {
     path: 'radio',
