@@ -1,0 +1,17 @@
+<nz-divider nzOrientation="left" nzText="Selecione um estado"></nz-divider>
+
+<div class="row">
+  <div  class="d-flex col-4 mb-5" *ngFor="let dta of data">
+    <div nz-row [nzGutter]="[16, 24]">
+      <div nz-col class="gutter-row" nzSpan="24">
+        <nz-card (click)="handleState(dta)"  nzHoverable style="width: 350px">
+          <nz-card-meta
+            [nzTitle]="dta?.name"
+            nzDescription="{{ dta?.content?.length }} rádios"
+          ></nz-card-meta>
+        </nz-card>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
