@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { Store } from '@ngxs/store';
+
 import { State } from '@models/state.interface';
 import { Radio } from '@models/radio.interface';
-import { RadioPlayService } from 'src/app/services/radio-play.service';
+import { RadioPlayService } from 'src/app/providers/radio-play.service';
+import { CreateFavoriteRadio } from '@store/favorite-radio.actions';
 
 @Component({
   selector: 'app-radio-table',
@@ -22,6 +25,7 @@ export class RadioTableComponent implements OnInit {
   public color = '#474a51';
 
   constructor(
+    private store: Store,
     private router: Router,
     private location: Location,
     private radioPlay: RadioPlayService
@@ -82,5 +86,9 @@ export class RadioTableComponent implements OnInit {
     } else {
       this.isMute = false;
     }
+  }
+
+  handleFavorite(radio: Radio = this.radio): void {
+    this.store.dispatch(new CreateFavoriteRadio(radio));
   }
 }
