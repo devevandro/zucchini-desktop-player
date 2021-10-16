@@ -13,35 +13,32 @@ export class FavoriteService extends HttpService {
     super('radio-favorite', httpCliente);
   }
 
-  getAllFavorites(): Promise<any> {
-    return this.get<{ favorites: FavoriteRadio[] }>()
-      .then(favorite => {
-        return favorite.favorites;
-      })
-      .catch((e) => {
-        console.log(e);
-        return [];
-      });
+  async getAllFavorites(): Promise<any> {
+    try {
+      const favorite = await this.get<{ favorites: FavoriteRadio[]; }>();
+      return favorite.favorites;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
   }
 
-  storeFavorites(favoriteRadios: FavoriteRadio): Promise<any> {
-    return this.post(favoriteRadios)
-      .then((newFavoriteRadio: { favorite: FavoriteRadio }) => {
-        alert('adicionado');
-        const {favorite } = newFavoriteRadio;
-
-        return favorite;
-      }).catch(() => {
-        return;
-      });
+  async storeFavorites(favoriteRadios: FavoriteRadio): Promise<any> {
+    try {
+      const newFavoriteRadio = await this.post(favoriteRadios);
+      alert('adicionado');
+      return newFavoriteRadio;
+    } catch (e) {
+      return;
+    }
   }
 
-  removeFavoriteRadio(favoriteRadioId: string): Promise<any> {
-    return this.delete(`/${favoriteRadioId}`)
-    .then(() => {
+  async removeFavoriteRadio(favoriteRadioId: string): Promise<any> {
+    try {
+      await this.delete(`/${favoriteRadioId}`);
       return true;
-    }).catch(() => {
+    } catch (e) {
       return false;
-    });
+    }
   }
 }
