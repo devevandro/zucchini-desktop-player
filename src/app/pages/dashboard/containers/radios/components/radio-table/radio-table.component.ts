@@ -7,7 +7,7 @@ import { Store } from '@ngxs/store';
 import { State } from '@models/state.interface';
 import { Radio } from '@models/radio.interface';
 import { RadioPlayService } from 'src/app/providers/radio-play.service';
-import { CreateFavoriteRadio } from '@store/favorite-radio.actions';
+import { CreateFavoriteRadio } from '@store/radio/favorite-radio.actions';
 
 @Component({
   selector: 'app-radio-table',

@@ -29,7 +29,7 @@ import { RadioCardNortheastComponent } from './dashboard/containers/radios/compo
 import { NortheastComponent } from './dashboard/containers/radios/containers/northeast/northeast.component';
 import { RadioCardNorthComponent } from './dashboard/containers/radios/components/radio-card-north/radio-card-north.component';
 import { NorthComponent } from './dashboard/containers/radios/containers/north/north.component';
-import { FavoriteRadioState } from '@store/favorite-radio.state';
+import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
 registerLocaleData(pt);
 
 @NgModule({
