@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PlayerComponent } from './dashboard/containers/player/player.component';
+import { PlayerComponent } from './dashboard/containers/player/containers/player/player.component';
 import { SouthComponent } from './dashboard/containers/radios/containers/south/south.component';
 import { FavoriteRadiosComponent } from './dashboard/containers/radios/containers/favorite-radios/favorite-radios.component';
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
