@@ -52,7 +52,7 @@ export class PlaylistService extends HttpService {
     }
   }
 
-  async removePlaylist(playlistId: string): Promise<any> {
+  async removePlaylistById(playlistId: string): Promise<any> {
     try {
       await this.delete(`/${playlistId}`);
       return true;
