@@ -30,6 +30,8 @@ import { NortheastComponent } from './dashboard/containers/radios/containers/nor
 import { RadioCardNorthComponent } from './dashboard/containers/radios/components/radio-card-north/radio-card-north.component';
 import { NorthComponent } from './dashboard/containers/radios/containers/north/north.component';
 import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
+import { PlaylistComponent } from './dashboard/containers/player/containers/playlist/playlist.component';
+import { PlaylistState } from '@store/playlist/playlist.state';
 registerLocaleData(pt);
 
 @NgModule({
@@ -48,6 +50,7 @@ registerLocaleData(pt);
     NortheastComponent,
     RadioCardNorthComponent,
     NorthComponent,
+    PlaylistComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     IconsProviderModule,
     NgxsModule.forRoot([
-      FavoriteRadioState
+      FavoriteRadioState,
+      PlaylistState,
     ]),
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
