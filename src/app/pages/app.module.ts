@@ -66,6 +66,22 @@ registerLocaleData(pt);
     NgxsReduxDevtoolsPluginModule.forRoot(),
     SharedModule
   ],
+  exports: [
+    RadioTableComponent,
+    PlayerTableComponent,
+    SouthComponent,
+    RadioCardComponent,
+    RadioPlayComponent,
+    SoutheastComponent,
+    RadioCardSoutheastComponent,
+    MidlewestComponent,
+    RadioCardMidlewestComponent,
+    RadioCardNortheastComponent,
+    NortheastComponent,
+    RadioCardNorthComponent,
+    NorthComponent,
+    PlaylistComponent,
+  ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
 })
