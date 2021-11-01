@@ -1,15 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PlayerComponent } from './dashboard/containers/player/containers/player/player.component';
-import { SouthComponent } from './dashboard/containers/radios/containers/south/south.component';
-import { FavoriteRadiosComponent } from './dashboard/containers/radios/containers/favorite-radios/favorite-radios.component';
-import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
-import { SoutheastComponent } from './dashboard/containers/radios/containers/southeast/southeast.component';
-import { MidlewestComponent } from './dashboard/containers/radios/containers/midlewest/midlewest.component';
-import { NortheastComponent } from './dashboard/containers/radios/containers/northeast/northeast.component';
-import { NorthComponent } from './dashboard/containers/radios/containers/north/north.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -18,40 +9,43 @@ const routes: Routes = [
   },
   {
     path: 'radios-favoritas',
-    component: FavoriteRadiosComponent,
+    loadChildren: () =>
+      import('./dashboard/containers/radios/containers/favorite-radios/favorite-radios.module').then((m) => m.FavoriteRadiosModule),
   },
   {
     path: 'player',
-    component: PlayerComponent,
+    loadChildren: () => import('./dashboard/containers/player/containers/player/player.module').then((m) => m.PlayerModule),
   },
   {
     path: 'regiao-sul',
-    component: SouthComponent,
+    loadChildren: () => import('./dashboard/containers/radios/containers/south/south.module').then((m) => m.SouthModule),
   },
   {
     path: 'regiao-sudeste',
-    component: SoutheastComponent,
+    loadChildren: () => import('./dashboard/containers/radios/containers/southeast/southeast.module').then((m) => m.SoutheastModule),
   },
   {
     path: 'regiao-centro-oeste',
-    component: MidlewestComponent,
+    loadChildren: () => import('./dashboard/containers/radios/containers/midlewest/midlewest.module').then((m) => m.MidlewestModule),
   },
   {
     path: 'regiao-nordeste',
-    component: NortheastComponent,
+    loadChildren: () => import('./dashboard/containers/radios/containers/northeast/northeast.module').then((m) => m.NortheastModule),
   },
   {
     path: 'regiao-norte',
-    component: NorthComponent,
+    loadChildren: () => import('./dashboard/containers/radios/containers/north/north.module').then((m) => m.NorthModule),
   },
   {
     path: 'radio',
-    component: RadioTableComponent
+    loadChildren: () => import('./dashboard/containers/radios/components/radio-table/radio-table.module').then((m) => m.RadioTableModule),
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload',
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
