@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FavoriteRadio } from '@models/favorite-radio.interface';
 
-import { Action, Actions, Selector, State, StateContext } from '@ngxs/store';
+import { Action, Actions, createSelector, Selector, State, StateContext } from '@ngxs/store';
 import { FavoriteService } from '@pages/dashboard/containers/radios/services/favorite.service';
 
 import { FavoriteRadioModel } from './favorite-radio-model.interface';
@@ -16,16 +16,20 @@ import { CreateFavoriteRadio, LoadRequestFavoriteRadios, RemoveFavoriteRadio } f
 @Injectable()
 export class FavoriteRadioState {
   @Selector()
-  // tslint:disable-next-line: typedef
-  static getFavoriteRadios({ favoriteRadios }: FavoriteRadioModel) {
+  static getFavoriteRadios({ favoriteRadios }: FavoriteRadioModel): FavoriteRadio[] {
     return favoriteRadios;
+  }
+
+  static getFavoriteRadioByURL(url: string): any {
+    return createSelector([FavoriteRadioState.getFavoriteRadios], (state: FavoriteRadio[]) => {
+      return state.filter(radio => radio.url === url);
+    });
   }
 
   constructor(private favoriteRadioService: FavoriteService) {}
 
   @Action(LoadRequestFavoriteRadios)
-  // tslint:disable-next-line: typedef
-  async loadRequest({ patchState }: StateContext<FavoriteRadioModel>) {
+  async loadRequest({ patchState }: StateContext<FavoriteRadioModel>): Promise<void> {
     const favoriteRadios = await this.favoriteRadioService.getAllFavorites();
 
     patchState({ favoriteRadios });
