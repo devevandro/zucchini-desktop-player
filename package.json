@@ -4,13 +4,17 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "concurrently \"ng serve\" \"wait-on http://localhost:4200 && electron .\"",
     "electron-build": "ng-build --prod"
+  },
+  "engines": {
+    "node": "12.18.0",
+    "npm": "6.14.4"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +32,7 @@
     "@ngxs/store": "^3.7.2",
     "bootstrap": "^4.5.0",
     "cors": "^2.8.5",
+    "express": "^4.17.1",
     "fm-radios": "^1.1.1",
     "ng-zorro-antd": "^11.4.2",
     "ngx-store": "^3.0.1",
