@@ -6,8 +6,9 @@ import { Store } from '@ngxs/store';
 
 import { State } from '@models/state.interface';
 import { Radio } from '@models/radio.interface';
+import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
 import { RadioPlayService } from 'src/app/providers/radio-play.service';
-import { CreateFavoriteRadio } from '@store/radio/favorite-radio.actions';
+import { CreateFavoriteRadio, LoadRequestFavoriteRadios } from '@store/radio/favorite-radio.actions';
 
 @Component({
   selector: 'app-radio-table',
@@ -32,6 +33,7 @@ export class RadioTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new LoadRequestFavoriteRadios());
     const { datas } = history.state;
 
     if (datas === undefined) {
@@ -88,7 +90,17 @@ export class RadioTableComponent implements OnInit {
     }
   }
 
-  handleFavorite(radio: Radio = this.radio): void {
+  handleAddFavorite(radio: Radio = this.radio): void {
     this.store.dispatch(new CreateFavoriteRadio(radio));
+  }
+
+  handleFavorite(url: string): boolean {
+    const favoriteRadios = this.store.dispatch(FavoriteRadioState.getFavoriteRadioByURL(url));
+
+    if (favoriteRadios) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
