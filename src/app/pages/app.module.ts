@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { SharedModule } from 'src/shared/shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
 import { PlayerTableComponent } from './dashboard/containers/player/components/player-table/player-table.component';
@@ -29,6 +30,7 @@ import { PlaylistComponent } from './dashboard/containers/player/containers/play
 import { PlaylistState } from '@store/playlist/playlist.state';
 import { AlbumListComponent } from './dashboard/containers/player/components/album-list/album-list.component';
 import { AlbunsComponent } from './dashboard/containers/player/containers/albuns/albuns.component';
+import { PlaylistFormComponent } from './dashboard/containers/player/components/playlist-form/playlist-form.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -45,6 +47,7 @@ registerLocaleData(pt);
     PlaylistComponent,
     AlbumListComponent,
     AlbunsComponent,
+    PlaylistFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,8 +61,10 @@ registerLocaleData(pt);
     ]),
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
 })

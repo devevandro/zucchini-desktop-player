@@ -1,0 +1,63 @@
+<form class="row" #form [formGroup]="playlistForm" (ngSubmit)="handleSubmitForm(playlistForm)">
+  <div class="col-12 form-group text-left">
+    <label class="text-white">Nome do álbum</label>
+    <input
+      class="form-control form-control-solid py-3 px-4 rounded-sm text-dark"
+      type="text"
+      name="name"
+      formControlName="name"
+      autocomplete="off"
+      [ngClass]="{ 'is-invalid': name.invalid && submitAttempt }"
+    />
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'O nome do álbum é obrigatório',
+        control: name
+      }"
+    ></ng-container>
+  </div>
+  <div class="col-12 form-group text-left">
+    <label class="text-white">URL da imagem</label>
+    <input
+      class="form-control form-control-solid py-3 px-4 rounded-sm text-dark"
+      type="text"
+      name="image"
+      formControlName="image"
+      autocomplete="off"
+      [ngClass]="{ 'is-invalid': image.invalid && submitAttempt }"
+    />
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'A a url da image é obrigatória',
+        control: image
+      }"
+    ></ng-container>
+  </div>
+  <div class="col-12 form-group mt-2">
+    <button type="submit" class="btn btn-success col-12"> Salvar </button>
+  </div>
+</form>
+
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ng-container
+    *ngIf="
+      control.hasError(validation) &&
+      (control.dirty || control.touched || submitAttempt)
+    "
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block pt-1">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
