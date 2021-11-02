@@ -28,6 +28,7 @@ import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
 import { PlaylistComponent } from './dashboard/containers/player/containers/playlist/playlist.component';
 import { PlaylistState } from '@store/playlist/playlist.state';
 import { AlbumListComponent } from './dashboard/containers/player/components/album-list/album-list.component';
+import { AlbunsComponent } from './dashboard/containers/player/containers/albuns/albuns.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -43,6 +44,7 @@ registerLocaleData(pt);
     NorthComponent,
     PlaylistComponent,
     AlbumListComponent,
+    AlbunsComponent,
   ],
   imports: [
     BrowserModule,

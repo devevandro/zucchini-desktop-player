@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from 'src/shared/shared.module';
-import { AlbumRoutingModule } from './album-routing.module';
+import { AlbunsRoutingModule } from './albuns-routing.module';
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
-    AlbumRoutingModule,
+    AlbunsRoutingModule,
     SharedModule,
-    NgbModule,
-  ],
+    NgbModule
+  ]
 })
-export class AlbumModule { }
+export class AlbunsModule { }

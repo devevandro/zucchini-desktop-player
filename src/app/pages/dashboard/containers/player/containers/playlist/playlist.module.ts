@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 
-import { PlaylistComponent } from './playlist.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-const routes: Routes = [{ path: '', component: PlaylistComponent }];
+import { SharedModule } from 'src/shared/shared.module';
+import { PlaylistRoutingModule } from './playlist-routing.module';
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [RouterModule],
+    PlaylistRoutingModule,
+    SharedModule,
+    NgbModule
+  ]
 })
 export class PlaylistModule { }

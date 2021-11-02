@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'albuns',
-    loadChildren: () => import('./dashboard/containers/player/containers/album/album.module').then((m) => m.AlbumModule),
+    loadChildren: () => import('./dashboard/containers/player/containers/albuns/albuns.module').then((m) => m.AlbunsModule),
   },
   {
     path: 'playlists',
