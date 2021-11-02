@@ -12,7 +12,18 @@
         {{ newAlbum }}
         <i class="fas fa-folder-plus ml-2"></i>
       </ng-template>
-      form de cadatro
+      <div class="row flex-column justify-content-center align-items-center m-5 p-5">
+        <h5>Nova playlist</h5>
+        <app-playlist-form (submitPlaylist)="handleCreatePlaylist($event)"></app-playlist-form>
+      </div>
     </nz-tab>
   </nz-tabset>
 </div>
+
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.8)"
+  size = "medium"
+  color = "#fff"
+  type = "timer"
+  [fullScreen] = "true">
+</ngx-spinner>
