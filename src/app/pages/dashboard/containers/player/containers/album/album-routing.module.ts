@@ -9,9 +9,9 @@ import { SharedModule } from 'src/shared/shared.module';
   declarations: [],
   imports: [
     CommonModule,
-    PlayerRoutingModule,
+    AlbumRoutingModule,
     SharedModule,
     NgbModule
   ]
 })
-export class PlayerRoutingModule { }
+export class AlbumRoutingModule { }

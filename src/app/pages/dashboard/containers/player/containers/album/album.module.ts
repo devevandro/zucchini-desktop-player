@@ -13,4 +13,4 @@ const routes: Routes = [{ path: '', component: AlbumComponent }];
   ],
   exports: [RouterModule],
 })
-export class PlayerModule { }
+export class AlbumModule { }
