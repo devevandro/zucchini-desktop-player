@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path: 'radio',
     loadChildren: () => import('./dashboard/containers/radios/components/radio-table/radio-table.module').then((m) => m.RadioTableModule),
+  },
+  {
+    path: 'albuns-lista',
+    loadChildren: () => import('./dashboard/containers/player/components/album-list/album-list.module').then((m) => m.AlbumListModule),
   }
 ];
 

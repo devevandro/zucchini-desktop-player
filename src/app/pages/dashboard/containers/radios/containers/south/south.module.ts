@@ -6,8 +6,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/shared/shared.module';
 import { SouthRoutingModule } from './south-routing.module';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
