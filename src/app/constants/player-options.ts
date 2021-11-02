@@ -1,6 +1,6 @@
 export const PLAYER_OPTIONS = [
   {
-    label: 'Player',
-    route: '/player'
+    label: 'Álbuns',
+    route: '/albuns'
   },
 ];
