@@ -13,8 +13,8 @@ const routes: Routes = [
       import('./dashboard/containers/radios/containers/favorite-radios/favorite-radios.module').then((m) => m.FavoriteRadiosModule),
   },
   {
-    path: 'player',
-    loadChildren: () => import('./dashboard/containers/player/containers/player/player.module').then((m) => m.PlayerModule),
+    path: 'albuns',
+    loadChildren: () => import('./dashboard/containers/player/containers/album/album.module').then((m) => m.PlayerModule),
   },
   {
     path: 'regiao-sul',

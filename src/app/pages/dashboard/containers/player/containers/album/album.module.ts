@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PlayerComponent } from './player.component';
+import { AlbumComponent } from './album.component';
 
-const routes: Routes = [{ path: '', component: PlayerComponent }];
+const routes: Routes = [{ path: '', component: AlbumComponent }];
 
 @NgModule({
   imports: [
