@@ -12,6 +12,6 @@ import { RadioTableRoutingModule } from './radio-table-routing.module';
     RadioTableRoutingModule,
     SharedModule,
     NgbModule
-  ]
+  ],
 })
 export class RadioTableModule { }

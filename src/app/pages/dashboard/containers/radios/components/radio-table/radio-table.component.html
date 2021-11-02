@@ -1,14 +1,8 @@
-<nz-page-header
-  (nzBack)="onBack()"
-  nzBackIcon
-  [nzTitle]="stateName">
-</nz-page-header>
-
 <div class="row d-flex flex-column">
   <div class="col-12">
     <nz-table
       #radioTable
-      [nzData]="radios"
+      [nzData]="datas"
       [nzPageSize]="10"
       nzTableLayout="fixed"
       [nzPaginationPosition]="'top'"

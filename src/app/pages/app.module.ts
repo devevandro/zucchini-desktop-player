@@ -19,15 +19,10 @@ import { SharedModule } from 'src/shared/shared.module';
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
 import { PlayerTableComponent } from './dashboard/containers/radios/components/player-table/player-table.component';
 import { SouthComponent } from './dashboard/containers/radios/containers/south/south.component';
-import { RadioCardComponent } from './dashboard/containers/radios/components/radio-card/radio-card.component';
 import { RadioPlayComponent } from './dashboard/components/radio-play/radio-play.component';
 import { SoutheastComponent } from './dashboard/containers/radios/containers/southeast/southeast.component';
-import { RadioCardSoutheastComponent } from './dashboard/containers/radios/components/radio-card-southeast/radio-card-southeast.component';
 import { MidlewestComponent } from './dashboard/containers/radios/containers/midlewest/midlewest.component';
-import { RadioCardMidlewestComponent } from './dashboard/containers/radios/components/radio-card-midlewest/radio-card-midlewest.component';
-import { RadioCardNortheastComponent } from './dashboard/containers/radios/components/radio-card-northeast/radio-card-northeast.component';
 import { NortheastComponent } from './dashboard/containers/radios/containers/northeast/northeast.component';
-import { RadioCardNorthComponent } from './dashboard/containers/radios/components/radio-card-north/radio-card-north.component';
 import { NorthComponent } from './dashboard/containers/radios/containers/north/north.component';
 import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
 import { PlaylistComponent } from './dashboard/containers/player/containers/playlist/playlist.component';
@@ -40,15 +35,10 @@ registerLocaleData(pt);
     RadioTableComponent,
     PlayerTableComponent,
     SouthComponent,
-    RadioCardComponent,
     RadioPlayComponent,
     SoutheastComponent,
-    RadioCardSoutheastComponent,
     MidlewestComponent,
-    RadioCardMidlewestComponent,
-    RadioCardNortheastComponent,
     NortheastComponent,
-    RadioCardNorthComponent,
     NorthComponent,
     PlaylistComponent,
   ],
@@ -65,22 +55,6 @@ registerLocaleData(pt);
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     SharedModule
-  ],
-  exports: [
-    RadioTableComponent,
-    PlayerTableComponent,
-    SouthComponent,
-    RadioCardComponent,
-    RadioPlayComponent,
-    SoutheastComponent,
-    RadioCardSoutheastComponent,
-    MidlewestComponent,
-    RadioCardMidlewestComponent,
-    RadioCardNortheastComponent,
-    NortheastComponent,
-    RadioCardNorthComponent,
-    NorthComponent,
-    PlaylistComponent,
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]

@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Store } from '@ngxs/store';
 
-import { State } from '@models/state.interface';
 import { Radio } from '@models/radio.interface';
 import { FavoriteRadioState } from '@store/radio/favorite-radio.state';
 import { RadioPlayService } from 'src/app/providers/radio-play.service';
@@ -16,7 +15,9 @@ import { CreateFavoriteRadio, LoadRequestFavoriteRadios } from '@store/radio/fav
   styleUrls: ['./radio-table.component.scss'],
 })
 export class RadioTableComponent implements OnInit {
-  public state: State;
+  @Input() datas = [];
+
+  public state;
   public radios: Radio[] = [];
   public radio: Radio;
   public stateName = '';
@@ -34,13 +35,12 @@ export class RadioTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new LoadRequestFavoriteRadios());
-    const { datas } = history.state;
 
-    if (datas === undefined) {
+    if (this.datas === undefined) {
       this.router.navigate(['/radios-favoritas']);
     } else {
-      if (datas) {
-        this.state = datas;
+      if (this.datas) {
+        this.state = this.datas;
         const { content, name } = this.state;
         this.radios = content;
         this.stateName = name;
