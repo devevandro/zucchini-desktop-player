@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Music, Playlist } from '@models/playlist-model';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { HttpService } from 'src/app/providers/http.service';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { HttpService } from 'src/app/providers/http.service';
 })
 export class PlaylistService extends HttpService {
 
-  constructor(httpClient: HttpClient) {
+  constructor(httpClient: HttpClient, private notification: NzNotificationService) {
     super('playlists', httpClient);
   }
 
@@ -33,14 +34,39 @@ export class PlaylistService extends HttpService {
   }
 
   async storePlaylist(playlist: Playlist): Promise<any> {
-    try {
+    return this.post(playlist).then((newPlaylist: { playlist: Playlist }) => {
+      this.notification.create(
+        'success',
+        'Playlist criada com sucesso',
+        ''
+      );
+      return newPlaylist.playlist;
+    }).catch((e) => {
+      this.notification.create(
+        'error',
+        'Erro ao criar a playlist',
+        `${e?.message}`
+      );
+      return;
+    });
+    /* try {
       const newPlaylist = await this.post(playlist);
       if (newPlaylist) {
+        this.notification.create(
+          'success',
+          'Playlist criada com sucesso',
+          ''
+        );
         return playlist;
       }
     } catch (e) {
+      this.notification.create(
+        'error',
+        'Erro ao criar a playlist',
+        `${e?.message}`
+      );
       return;
-    }
+    } */
   }
 
   async updatePlaylist(playlist: Playlist, music: Music): Promise<any> {
