@@ -1,1 +1,18 @@
-<app-album-list></app-album-list>
+<div class="w-100 h-100">
+  <nz-tabset>
+    <nz-tab [nzTitle]="titleTemplate">
+      <ng-template #titleTemplate>
+        {{ title }}
+        <i class="fas fa-folder ml-2"></i>
+      </ng-template>
+      <app-album-list [albums]="albums"></app-album-list>
+    </nz-tab>
+    <nz-tab [nzTitle]="newAlbumTemplate">
+      <ng-template #newAlbumTemplate>
+        {{ newAlbum }}
+        <i class="fas fa-folder-plus ml-2"></i>
+      </ng-template>
+      form de cadatro
+    </nz-tab>
+  </nz-tabset>
+</div>
