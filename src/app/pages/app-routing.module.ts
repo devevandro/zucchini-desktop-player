@@ -14,7 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'albuns',
-    loadChildren: () => import('./dashboard/containers/player/containers/album/album.module').then((m) => m.PlayerModule),
+    loadChildren: () => import('./dashboard/containers/player/containers/album/album.module').then((m) => m.AlbumModule),
+  },
+  {
+    path: 'playlists',
+    loadChildren: () => import('./dashboard/containers/player/containers/playlist/playlist.module').then((m) => m.PlaylistModule),
   },
   {
     path: 'regiao-sul',
