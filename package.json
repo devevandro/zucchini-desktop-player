@@ -36,6 +36,7 @@
     "express": "^4.17.1",
     "fm-radios": "^1.1.1",
     "ng-zorro-antd": "^11.4.2",
+    "ngx-spinner": "^11.0.2",
     "ngx-store": "^3.0.1",
     "ngxs-reset-plugin": "^1.4.1",
     "rxjs": "~6.6.0",
