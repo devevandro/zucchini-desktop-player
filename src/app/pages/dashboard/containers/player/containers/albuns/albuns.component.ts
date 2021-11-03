@@ -18,7 +18,7 @@ import { CreatePlaylist, LoadRequestPlaylists } from '@store/playlist/playlist.a
 export class AlbunsComponent implements OnInit, OnDestroy {
   @Select(actionsExecuting([CreatePlaylist, LoadRequestPlaylists])) loading$: Observable<ActionsExecuting>;
 
-  public albums: Playlist[];
+  public albums$: Observable<Playlist[]>;
   public title = 'Álbuns';
   public newAlbum = 'Novo álbum';
   public subscription: Subscription[] = [];
@@ -35,9 +35,9 @@ export class AlbunsComponent implements OnInit, OnDestroy {
       }
 
       this.spinner.hide();
-      this.store.dispatch(new LoadRequestPlaylists());
-      this.albums = this.store.selectSnapshot(PlaylistState.getPlaylists);
     });
+
+    this.albums$ = this.store.select(PlaylistState.getPlaylists);
 
     this.subscription.push(loadingSubscription);
   }
