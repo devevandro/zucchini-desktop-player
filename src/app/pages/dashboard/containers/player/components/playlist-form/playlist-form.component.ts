@@ -46,6 +46,5 @@ export class PlaylistFormComponent implements OnInit {
 
     const formValues = form.getRawValue();
     this.submitPlaylist.emit(formValues);
-    this.router.navigate(['/playlists']);
   }
 }
