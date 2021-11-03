@@ -49,24 +49,6 @@ export class PlaylistService extends HttpService {
       );
       return;
     });
-    /* try {
-      const newPlaylist = await this.post(playlist);
-      if (newPlaylist) {
-        this.notification.create(
-          'success',
-          'Playlist criada com sucesso',
-          ''
-        );
-        return playlist;
-      }
-    } catch (e) {
-      this.notification.create(
-        'error',
-        'Erro ao criar a playlist',
-        `${e?.message}`
-      );
-      return;
-    } */
   }
 
   async updatePlaylist(playlist: Playlist, music: Music): Promise<any> {
@@ -79,12 +61,21 @@ export class PlaylistService extends HttpService {
   }
 
   async removePlaylistById(playlistId: string): Promise<any> {
-    try {
-      await this.delete(`/${playlistId}`);
+    return this.delete(`/${playlistId}`).then(() => {
+      this.notification.create(
+        'success',
+        'Playlist removida com sucesso',
+        ''
+      );
       return true;
-    } catch (error) {
+    }).catch((error) => {
+      this.notification.create(
+        'error',
+        'Erro ao remover a playlist',
+        `${error?.message}`
+      );
       return false;
-    }
+    });
   }
 
   async getMusicById(musicId: string): Promise<any> {
