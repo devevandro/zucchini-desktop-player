@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxsActionsExecutingModule } from '@ngxs-labs/actions-executing';
 
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
 import { PlayerTableComponent } from './dashboard/containers/player/components/player-table/player-table.component';
@@ -62,10 +63,12 @@ registerLocaleData(pt);
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxsActionsExecutingModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [NgxsActionsExecutingModule]
 })
 export class AppModule { }
