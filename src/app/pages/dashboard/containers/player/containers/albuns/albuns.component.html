@@ -5,7 +5,7 @@
         {{ title }}
         <i class="fas fa-folder ml-2"></i>
       </ng-template>
-      <app-album-list [albums]="albums"></app-album-list>
+      <app-album-list [albums]="albums$ | async"></app-album-list>
     </nz-tab>
     <nz-tab [nzTitle]="newAlbumTemplate">
       <ng-template #newAlbumTemplate>
@@ -13,7 +13,7 @@
         <i class="fas fa-folder-plus ml-2"></i>
       </ng-template>
       <div class="row flex-column justify-content-center align-items-center m-5 p-5">
-        <h5>Nova playlist</h5>
+        <h5>Novo álbum</h5>
         <app-playlist-form (submitPlaylist)="handleCreatePlaylist($event)"></app-playlist-form>
       </div>
     </nz-tab>
@@ -21,9 +21,9 @@
 </div>
 
 <ngx-spinner
-  bdColor = "rgba(0, 0, 0, 0.8)"
-  size = "medium"
-  color = "#fff"
-  type = "timer"
-  [fullScreen] = "true">
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer"
+  [fullScreen]="true">
 </ngx-spinner>
