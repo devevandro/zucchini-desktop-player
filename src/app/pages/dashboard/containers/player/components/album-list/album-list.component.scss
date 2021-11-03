@@ -5,14 +5,23 @@
     background: #1b1e23 !important;
   }
 
-  .ant-layout, .ant-layout * {
+  .ant-layout,
+  .ant-layout * {
     box-sizing: border-box;
     color: #ffffff;
   }
 
   .ant-card-bordered {
     border: 1px solid #1b1e23 !important;
-}
+  }
+
+  .ant-card-actions {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #1b1e23;
+    border-top: 1px solid #2e2f34;
+  }
 }
 
 img {
