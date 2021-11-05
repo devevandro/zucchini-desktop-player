@@ -50,7 +50,7 @@ export class AlbumListComponent implements OnInit, OnDestroy {
       nzTitle: `Excluir a playlist.`,
       nzOkText: 'Remover',
       nzContent: `Deseja remover a playlist ${name}? Esta ação não poderá ser desfeita.`,
-      nzOkType: 'danger',
+      nzOkDanger: true,
       nzOnOk: () => this.handleRemove(_id),
       nzOnCancel: () => {},
     });
