@@ -2,7 +2,7 @@
   <div class="col-12">
     <nz-table
       #radioTable
-      [nzData]="datas"
+      [nzData]="listOfDisplayData"
       [nzPageSize]="10"
       nzTableLayout="fixed"
       [nzPaginationPosition]="'top'"
@@ -11,7 +11,12 @@
       nzSize="small">
       <thead>
         <tr>
-          <th>Rádio</th>
+          <th>
+            Rádio
+            <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+              <i nz-icon nzType="search"></i>
+            </nz-filter-trigger>
+          </th>
           <th>Cidade</th>
         </tr>
       </thead>
@@ -72,6 +77,16 @@
     </div>
   </div>
 </div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Busque por nome ou cidade" [(ngModel)]="searchValue" />
+      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Pesquisar</button>
+      <button nz-button nzSize="small" (click)="reset()">Limpar</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
 
 <ng-template #pauseTemplateRef>
   <span class="mx-3 icons cursor-pointer" (click)="handlePause()">

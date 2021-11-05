@@ -25,6 +25,9 @@ export class RadioTableComponent implements OnInit {
   public isMute = false;
   public volume = 30;
   public color = '#474a51';
+  public searchValue = '';
+  public visible = false;
+  public listOfDisplayData = [...this.datas];
 
   constructor(
     private store: Store,
@@ -46,6 +49,8 @@ export class RadioTableComponent implements OnInit {
         this.stateName = name;
       }
     }
+
+    this.reset();
   }
 
   handlePlay(radio: Radio = this.radio): void {
@@ -102,5 +107,19 @@ export class RadioTableComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  reset(): void {
+    this.searchValue = '';
+    this.search();
+  }
+
+  search(): void {
+    this.visible = false;
+    this.listOfDisplayData = this.datas.filter((item) =>
+      // item.name.indexOf(this.searchValue.toLowerCase) !== -1
+      item?.name?.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+      item?.city?.toLowerCase().includes(this.searchValue.toLowerCase())
+    );
   }
 }
