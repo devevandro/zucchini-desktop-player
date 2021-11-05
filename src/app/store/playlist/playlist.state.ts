@@ -91,7 +91,7 @@ export class PlaylistState {
       return;
     }
 
-    const playlistDeleted = getState().playlists.filter(playlist => playlist._id === playlistId);
+    const playlistDeleted = getState().playlists.filter(playlist => playlist._id !== playlistId);
 
     patchState({ playlists: playlistDeleted });
   }
