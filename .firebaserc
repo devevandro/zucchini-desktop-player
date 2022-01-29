@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "zucchini-app": {
+      "hosting": {
+        "zucchini": [
+          "zucchini-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "zucchini-app"
+  }
+}

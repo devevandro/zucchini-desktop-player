@@ -4,4 +4,5 @@ export interface Radio {
   state: string;
   url: string;
   img: string;
+  key?: string;
 }

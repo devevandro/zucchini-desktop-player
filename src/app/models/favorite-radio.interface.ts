@@ -5,4 +5,5 @@ export interface FavoriteRadio {
   city: string;
   state: string;
   img: string;
+  key?: string;
 }

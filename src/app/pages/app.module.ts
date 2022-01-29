@@ -17,6 +17,8 @@ import { IconsProviderModule } from './icons-provider.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxsActionsExecutingModule } from '@ngxs-labs/actions-executing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { RadioTableComponent } from './dashboard/containers/radios/components/radio-table/radio-table.component';
 import { PlayerTableComponent } from './dashboard/containers/player/components/player-table/player-table.component';
@@ -32,6 +34,8 @@ import { PlaylistState } from '@store/playlist/playlist.state';
 import { AlbumListComponent } from './dashboard/containers/player/components/album-list/album-list.component';
 import { AlbunsComponent } from './dashboard/containers/player/containers/albuns/albuns.component';
 import { PlaylistFormComponent } from './dashboard/containers/player/components/playlist-form/playlist-form.component';
+import { environment } from '@environments/environment';
+import { FavoriteRadiosComponent } from './dashboard/containers/radios/containers/favorite-radios/favorite-radios.component';
 registerLocaleData(pt);
 
 @NgModule({
@@ -49,6 +53,7 @@ registerLocaleData(pt);
     AlbumListComponent,
     AlbunsComponent,
     PlaylistFormComponent,
+    FavoriteRadiosComponent
   ],
   imports: [
     BrowserModule,
@@ -56,15 +61,14 @@ registerLocaleData(pt);
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
-    NgxsModule.forRoot([
-      FavoriteRadioState,
-      PlaylistState,
-    ]),
+    NgxsModule.forRoot(),
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     SharedModule,
     NgxSpinnerModule,
     NgxsActionsExecutingModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+   AngularFireDatabaseModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
