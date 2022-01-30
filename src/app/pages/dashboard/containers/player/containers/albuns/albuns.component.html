@@ -5,7 +5,7 @@
         {{ title }}
         <i class="fas fa-folder ml-2"></i>
       </ng-template>
-      <app-album-list [albums]="albums$ | async"></app-album-list>
+      <app-album-list [albums]="albums"></app-album-list>
     </nz-tab>
     <nz-tab [nzTitle]="newAlbumTemplate">
       <ng-template #newAlbumTemplate>

@@ -4,6 +4,7 @@ import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 import { Playlist } from '@models/playlist-model';
 import { PlaylistState } from '@store/playlist/playlist.state';
@@ -18,12 +19,17 @@ import { CreatePlaylist, LoadRequestPlaylists } from '@store/playlist/playlist.a
 export class AlbunsComponent implements OnInit, OnDestroy {
   @Select(actionsExecuting([CreatePlaylist, LoadRequestPlaylists])) loading$: Observable<ActionsExecuting>;
 
-  public albums$: Observable<Playlist[]>;
+  public albums;
   public title = 'Álbuns';
   public newAlbum = 'Novo álbum';
   public subscription: Subscription[] = [];
+  public favoriteValues: Observable<any[]>;
 
-  constructor(private store: Store, private spinner: NgxSpinnerService) { }
+  constructor(
+    private store: Store,
+    private spinner: NgxSpinnerService,
+    private db: AngularFireDatabase
+  ) { }
 
   ngOnInit(): void {
     this.store.dispatch(new LoadRequestPlaylists());
@@ -37,7 +43,14 @@ export class AlbunsComponent implements OnInit, OnDestroy {
       this.spinner.hide();
     });
 
-    this.albums$ = this.store.select(PlaylistState.getPlaylists);
+    const ref = this.db.list('albums-list');
+    this.favoriteValues = ref.valueChanges();
+    this.favoriteValues.subscribe((resp) => {
+      this.albums = resp;
+    });
+
+    // this.albums$ = this.store.select(PlaylistState.getPlaylists);
+    // this.albums$ = this.store.select(PlaylistState.getPlaylists);
 
     this.subscription.push(loadingSubscription);
   }
