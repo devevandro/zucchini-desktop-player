@@ -1,4 +1,4 @@
-<div class="w-100 h-100">
+<!-- <div class="w-100 h-100">
   <div class="teste">
     <ng-container *ngFor="let data of datas">
       <br>
@@ -8,4 +8,12 @@
     </ng-container>
     <p>red</p>
   </div>
+</div> -->
+
+<div class="w-100 h-100">
+  <nz-tabset>
+    <nz-tab *ngFor="let data of datas">
+      <app-radio-table [datas]="datas"></app-radio-table>
+    </nz-tab>
+  </nz-tabset>
 </div>
